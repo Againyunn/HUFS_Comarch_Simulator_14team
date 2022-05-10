@@ -166,10 +166,7 @@ void main() {
     char* file_name = malloc(sizeof(char) * 100);*/
 
 
-
-
-
-
+    //시뮬레이터 동작
     while (1) {
         //기존에 입력받은 명령어 초기화
 
@@ -188,6 +185,7 @@ void main() {
 
         scanf("%s", command);
 
+        //명령어 l
         if (command[0] == 'l') {
             /*입력받은 문자열 해석 후 파일 이름 추출*/
             int input = 0;
@@ -243,6 +241,7 @@ void main() {
             
         }
 
+        //명령어 j
         else if (command[0] == 'j') {
             /*입력받은 문자열 해석 후 주소 값 추출*/
             char address_point[100];
@@ -291,6 +290,7 @@ void main() {
 
         }
 
+        //명령어 g
         else if (command[0] == 'g') {
                
             //기존에 load된 데이터가 있는 지 확인
@@ -357,8 +357,10 @@ void main() {
             }
         }
 
+        //명령어가 2자리인 경우(sr, sm)
         else if (command[1] != NULL) {
-
+            
+            //명령어 sr
             if (command[0] == 's' && command[1] == 'r') {
                 /*입력받은 문자열 해석 후 register number와 value 값 추출*/
                 char register_number[100];
@@ -433,6 +435,7 @@ void main() {
                 //결과 값 출력
             }
 
+            //명령어 sm
             if (command[0] == 's' && command[1] == 'm') {
                 /*입력받은 문자열 해석 후 location와 value 값 추출*/
                 char location[100];
@@ -511,7 +514,7 @@ void main() {
         }
 
 
-
+        //명령어 s
         else if (command[0] == 's') {
             //기존에 load된 데이터가 있는 지 확인
             if (&pFile == nullptr || pFile == NULL) {
@@ -579,7 +582,7 @@ void main() {
 
         }
 
-
+        //명령어 m
         else if (command[0] == 'm') {
             //입력받은 명령어 해석 후 start와 end 값 저장
 
@@ -654,6 +657,7 @@ void main() {
 
         }
 
+        //명령어 r
         else if (command[0] == 'r') {
             //register함수 접근
 
@@ -661,20 +665,21 @@ void main() {
 
         }
 
-        //exit program;
+        //명령어 x
         else if (command[0] == 'x') {
             /*저장을 따로 해야하나 ?*/
 
-            //while loop종료
+            //시뮬레이터 동작 종료
             printf("시뮬레이터를 종료합니다.\n");
             break;
         }
 
+        //정의되지 않은 명령어
         else {
         printf("올바른 명령어를 입력해주세요.\n");
         }
 
-        //다시 명령어를 받을 때 1줄 띄워서 받긴
+        //다시 명령어를 받을 때 1줄 띄우기
         printf("\n");
     }
 
